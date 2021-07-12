@@ -1,0 +1,29 @@
+.table_head tr td {
+  transition: 0.2s ease-out;
+}
+
+.table_head tr td:hover {
+  cursor: pointer;
+  background-color: #26a69a;
+  color: #fff;
+
+}
+
+.filters_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  width: 70%;
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    padding: 10px;
+  }
+}
+

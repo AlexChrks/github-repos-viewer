@@ -6,6 +6,14 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.app_wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +21,17 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.signin_form {
+  width: 40%;
+  height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
