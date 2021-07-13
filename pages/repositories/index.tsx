@@ -5,7 +5,6 @@ import ReposList from '../../components/ReposList/ReposList'
 import Link from 'next/link'
 import Preloader from '../../components/Preloader/Preloader'
 import styles from './Repositories.module.css'
-import { graphQLQueryBody } from '../../constants/graphQLQueryBody'
 import { saveReposToStore } from '../../store/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
@@ -13,6 +12,7 @@ import { RootState } from '../../store/store'
 const Repositories: React.FC = () => {
 
   const dispatch = useDispatch()
+
   const repos = useSelector<RootState, any>(state => state.reposReducer);
 
   const { isLoading, error, data } = useQuery('repoData', () =>
@@ -23,7 +23,29 @@ const Repositories: React.FC = () => {
         'Content-Type': 'application/json'
       }), 
       body: JSON.stringify({
-        query: graphQLQueryBody
+        query: ` query {
+          user(login: "${localStorage.getItem('login')}") {
+            id
+            name
+            login
+            avatarUrl
+            repositories(first: 50) {
+              edges {
+                node {
+                  id
+                  name
+                  updatedAt
+                  stargazerCount
+                  createdAt
+                  diskUsage
+                  owner {
+                    login
+                  }
+                }
+              }
+            }
+          }
+        }`
       })
     }).then((res) => res.json())
    )

@@ -54,6 +54,11 @@ exports[`Sign In should render correctly 1`] = `
   onSubmit={[Function]}
 >
   <input
+    name="githubLogin"
+    placeholder="Github login"
+    type="text"
+  />
+  <input
     name="githubToken"
     placeholder="Github token"
     type="text"

@@ -23,5 +23,10 @@ export const reposReducer = (state: any = initialReposState,  action: any) => {
   }
 }
 
+const initialEntryData = {
+  login: '',
+  token: '',
+}
+
 
 export const selectRepositories = ( state: any, filterString: string, filterField: string ) => state.reposReducer.filter((repo: any) => repo.node[filterField].includes(filterString))

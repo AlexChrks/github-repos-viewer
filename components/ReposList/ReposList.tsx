@@ -24,11 +24,11 @@ const ReposList: React.FC<ReposListPropsInterface> = ({ reposArr }) => {
   }, [reposArr]);
 
   const filterByRepoOwner = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setRepos(reposArr.filter(repo => repo.node.owner.login.includes(event.target.value)) )
+    setRepos(reposArr.filter(repo => repo.node.owner.login.toLowerCase().includes(event.target.value.toLowerCase())) )
   }
 
   const filterByRepoName = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setRepos(reposArr.filter(repo => repo.node.name.includes(event.target.value)) )
+    setRepos(reposArr.filter(repo => repo.node.name.toLowerCase().includes(event.target.value.toLowerCase())) )
   }
 
   const sortTable = (event: any) => {
